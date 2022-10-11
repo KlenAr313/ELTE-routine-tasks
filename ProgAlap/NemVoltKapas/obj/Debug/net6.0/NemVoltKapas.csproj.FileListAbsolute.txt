@@ -1,0 +1,15 @@
+C:\Users\h9mrbv\source\repos\NemVoltKapas\bin\Debug\net6.0\NemVoltKapas.exe
+C:\Users\h9mrbv\source\repos\NemVoltKapas\bin\Debug\net6.0\NemVoltKapas.deps.json
+C:\Users\h9mrbv\source\repos\NemVoltKapas\bin\Debug\net6.0\NemVoltKapas.runtimeconfig.json
+C:\Users\h9mrbv\source\repos\NemVoltKapas\bin\Debug\net6.0\NemVoltKapas.dll
+C:\Users\h9mrbv\source\repos\NemVoltKapas\bin\Debug\net6.0\NemVoltKapas.pdb
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.csproj.AssemblyReference.cache
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.AssemblyInfoInputs.cache
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.AssemblyInfo.cs
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.csproj.CoreCompileInputs.cache
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.dll
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\refint\NemVoltKapas.dll
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.pdb
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\NemVoltKapas.genruntimeconfig.cache
+C:\Users\h9mrbv\source\repos\NemVoltKapas\obj\Debug\net6.0\ref\NemVoltKapas.dll
