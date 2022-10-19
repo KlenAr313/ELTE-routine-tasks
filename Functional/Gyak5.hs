@@ -48,3 +48,10 @@ merge [] ys = []
 merge (x:xs) (y:ys)
     | x < y = x : merge xs (y:ys)
     | x >= y = y : merge (x:xs) ys
+
+sublist :: Int -> Int -> [a] -> [a]
+sublist _ _ [] = []
+sublist 0 0 xs = []
+sublist a b (x:xs)
+    | a > 0 = sublist (a-1) (b-1) xs
+    | b > 0 = x : sublist a (b-1) xs
