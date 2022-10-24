@@ -10,6 +10,7 @@ void mul(int a[], int b[], int);
 float avg(int a[], int);
 void conv (char a[], int l);
 int abc(char a[], char b[], int al, int bl);
+int count(char a[]);
 
 int main () {
     //int i = 0;
@@ -33,18 +34,23 @@ int main () {
     //float average = avg (t,l);
     //printf("%f\n", average);
 
-    char chara[BUFFERSIZE], charb[BUFFERSIZE];
-    fgets(chara, BUFFERSIZE, stdin);
-    fgets(charb, BUFFERSIZE, stdin);
+    // char chara[BUFFERSIZE], charb[BUFFERSIZE];
+    // fgets(chara, BUFFERSIZE, stdin);
+    // fgets(charb, BUFFERSIZE, stdin);
 
-    //char chara[] = "akc\0";
-    //char charb[] = "abC\n";
-    int a = strlen(chara);
-    conv(chara, a);
-    int b = strlen(charb);
-    conv(charb, b);
+    // //char chara[] = "akc\0";
+    // //char charb[] = "abC\n";
+    // int a = strlen(chara);
+    // conv(chara, a);
+    // int b = strlen(charb);
+    // conv(charb, b);
 
-    int res = abc (chara, charb, a, b);
+    // int res = abc (chara, charb, a, b);
+    // printf("%d\n", res);
+
+    char a[BUFFERSIZE];
+    fgets(a, BUFFERSIZE, stdin);
+    int res = count (a);
     printf("%d\n", res);
 
     return 0;
@@ -129,4 +135,12 @@ int abc (char a[], char b[], int al, int bl){
         return (0);
     }
     return al < bl ? 1 : 2;
+}
+
+int count (char a[]){
+    int i = 0;
+    while (a[i] != '\0' && a[i] != '\r' && a[i] != '\n'){
+        i++;
+    }
+    return i;
 }
