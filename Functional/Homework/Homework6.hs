@@ -1,3 +1,5 @@
+import Data.Char
+
 listDiff :: Eq a => [a] -> [a] -> [a]
 listDiff xs [] = xs
 listDiff [] _ = []
@@ -33,3 +35,23 @@ sameParity (x:y:xs)
     | (mod x 2) == (mod y 2) = sameParity (x:xs)
     | otherwise = False
 
+longestChain :: String -> Int
+longestChain xs = longestChainH xs 1 1
+    where
+        longestChainH :: String -> Int -> Int -> Int
+        longestChainH [] _ _ = 0
+        longestChainH (x:[]) _ max = max
+        longestChainH (x:y:xs) current max
+            | (x == y) && ((current + 1) > max) = longestChainH (y:xs) (current + 1) (current + 1)
+            | (x == y) && ((current + 1) <= max) = longestChainH (y:xs) (current + 1) max
+            | otherwise = longestChainH (y:xs) 1 max
+
+normalizeText :: String -> String
+normalizeText str = (filter isAsciiUpper (map toUpper str))
+
+--normalizeText str = filter (<='Z') (filter (>='A') (map toUpper str))
+
+{-normalizeText (x:xs)
+    | x <= 'Z' && x >= 'A' = [x] ++ normalizeText xs
+    | x <= 'z' && x >= 'a' = [(toUpper x)] ++ normalizeText xs
+    | otherwise = [] ++ normalizeText xs-}
