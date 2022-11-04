@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void WriteArray(int*, int);
-void Permutation(int*, int, int*, int, int*, int, int*);
+void Permutation(int*, int, int*, int, int*, int*);
 void Subtract(int*, int, int*, int*, int*);
 int Include(int, int*, int);
 
@@ -18,22 +18,20 @@ int main () {
         starter[i] = original[i];
     }
 
-    Permutation(original, fullLength, starter, fullLength, help, fullLength, base);
-
-    //WriteArray(original, fullLength);
+    Permutation(original, fullLength, starter, fullLength, help, base);
 }
 
-void Permutation(int* original, int originalLength, int* left, int leftL, int* current, int fullLength, int* base){
+void Permutation(int* original, int originalLength, int* left, int leftL, int* current, int* base){
 
     if (leftL == 1){
         *current = left[0];
-        WriteArray(base, fullLength);
+        WriteArray(base, originalLength);
     }
     else {
         for (int i = 0; i < leftL; i++){
             *current = left[i];
             Subtract(original, originalLength, base, current, left);
-            Permutation(original, originalLength, left, (leftL - 1), (current + 1), fullLength, base);
+            Permutation(original, originalLength, left, (leftL - 1), (current + 1), base);
             for ( int j = leftL; j > i; j--){
                 left[j] = left [ j - 1 ];
             }
