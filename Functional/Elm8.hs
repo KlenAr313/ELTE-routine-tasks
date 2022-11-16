@@ -1,9 +1,11 @@
+import Data.List (foldl)
+
 map' :: ( a -> b ) -> [a] -> [b]
 map' f [] = []
 map' f (x:xs) = f x : map' f xs
 
 sqrEvery :: Num a => [a] -> [a]
-sqeEvery xs = map' (^2) xs
+sqrEvery xs = map' (^2) xs
 
 -- [1,2,3,0] "abcde" -> "a" : "ab" : "abc" : "" : []
 prefixes :: [Int] -> [a] -> [[a]]
@@ -45,8 +47,55 @@ length' :: [a] -> Int
 -- length' (_:xs) = 1 + length' xs
 length' ls = foldR (\_ acc -> 1 + acc ) 0 ls
 
--- maP :: ( a -> b ) -> [a] -> [b]
--- maP f ls = foldR
+maP :: ( a -> b ) -> [a] -> [b]
+-- maP f ls = foldR (\ x acc -> f x : acc) [] ls
+maP f ls = foldr step [] ls -- a paramétereket látja a lokális definíció, ha ott nem árnyékolja le
+    where
+        -- pl.: i = length ls
+        step x acc = f x : acc
 
 reverse'' :: [a] -> [a]
 reverse'' ls = foldR (\x acc -> acc ++ [x]) [] ls
+
+filter' :: (a -> Bool) -> [a] -> [a]
+-- filter' p [] = []
+-- filter' p (x:xs)
+--     | p x = x : filter' p xs
+--     | otherwise = filter' p xs
+filter' p ls = foldr step [] ls
+    where
+        step x acc
+            | p x = x : acc
+            | otherwise = acc
+
+lengtH :: [a] -> Int
+lengtH ls = len 0 ls
+    where
+        len i [] = i
+        len i (_:xs) = len (i+1) xs
+
+lengtH' :: [a] -> Int
+lengtH' ls = foldl (\ acc _ -> acc + 1 ) 0 ls
+
+foldL :: (b -> a -> b) -> b -> [a] -> b
+foldL f e [] = e
+foldL f e (x:xs) = foldL f (e `f` x) xs
+
+and' :: [Bool] -> Bool
+-- and' [] = True
+-- and' (x:xs) = x && and' xs
+and' ls = foldr (&&) True ls
+
+
+and'' :: [Bool] -> Bool
+-- and'' ls = andH True ls
+--     where
+--         andH b [] = b
+--         andH b (x:xs) = andH (b && x) xs
+
+and'' ls = foldl (&&) True ls
+
+(+:+) :: [a] -> [a] -> [a]
+(+:+) [] k = k
+(+:+) l [] = l
+(+:+) (x:xs) k = x : (xs +:+ k)
