@@ -99,3 +99,24 @@ and'' ls = foldl (&&) True ls
 (+:+) [] k = k
 (+:+) l [] = l
 (+:+) (x:xs) k = x : (xs +:+ k)
+
+(+::+) :: [a] -> [a] -> [a]
+(+::+) = flip (foldr (:))
+
+any' :: (a-> Bool) -> [a] -> Bool
+any' p ls = foldr (\ e  acc -> p e || acc) False ls
+
+scanL :: (b -> a -> b) -> b -> [a] -> [a]
+scanL f e [] = [e]
+scanL f e (x:xs) = e : scanL f (f e x) xs
+
+foldL'' f e ls = last (scanL f e ls)
+
+scanR :: (a -> b -> b) -> b -> [a] -> [b]
+scanR f e [] = e:[]
+scanR f e (x:xs) = f x q : ls
+    where
+        ls@(q:qs) = scanR f e xs
+
+(.) :: (b->c) -> (a -> b) -> (a->c)
+(.) f g = (\ x -> f (g x))
