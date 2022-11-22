@@ -106,7 +106,7 @@ and'' ls = foldl (&&) True ls
 any' :: (a-> Bool) -> [a] -> Bool
 any' p ls = foldr (\ e  acc -> p e || acc) False ls
 
-scanL :: (b -> a -> b) -> b -> [a] -> [a]
+scanL :: (b -> a -> b) -> b -> [a] -> [b]
 scanL f e [] = [e]
 scanL f e (x:xs) = e : scanL f (f e x) xs
 
@@ -118,5 +118,11 @@ scanR f e (x:xs) = f x q : ls
     where
         ls@(q:qs) = scanR f e xs
 
-(.) :: (b->c) -> (a -> b) -> (a->c)
-(.) f g = (\ x -> f (g x))
+-- (.) :: (b->c) -> (a -> b) -> (a->c)
+-- (.) f g = (\ x -> f (g x))
+
+-- (.) :: (b->c) -> (a -> b) -> a -> c
+-- (.) f g x = f (g x)
+
+monogram :: String -> String
+monogram str = unwords $ map ((\ x -> x:".") . head) $ words str

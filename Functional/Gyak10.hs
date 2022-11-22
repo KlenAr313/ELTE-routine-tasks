@@ -29,7 +29,7 @@ differences :: Num a => [a] -> [a]
 differences [] = []
 differences [_] = []
 differences (x:xs) = map (\(a,b) -> b - a) (zip (x:xs) xs)
--- differences ys = zipWith' (\x y -> y - x) ys
+-- differences ys = zipWith (\x y -> y - x) ys (tail ys)
 
 compress :: Eq a => [a] -> [(Int,a)]
 compress [] = []
@@ -45,9 +45,13 @@ concatMap' :: (a -> [b]) -> [a] -> [b]
 concatMap' f xs = concat $ map f xs
 
 indexFilter :: Integral i => (i -> a -> Bool) -> [a] -> [a]
-indexFilter f xs = map (\ (i,a) -> a) . filter (\ (i,a) -> f i ) ( zip [0..] xs)
+indexFilter f xs = map (\ (i,a) -> a) $ filter (\ (i,a) -> f i a) ( zip [0..] xs)
 
--- dips :: Ord a => [a] -> [a]
+dipsOn :: Ord a => (a -> b) -> [a] -> [a]
+dipsOn f xs = map head $ gruopBy (\ x y -> f x <= f y) xs
+
+
+
 
 -- zipIf :: Eq b => (a->b) -> (c -> d) -> [a] -> [c] -> [(a,c)]
 
