@@ -126,3 +126,11 @@ scanR f e (x:xs) = f x q : ls
 
 monogram :: String -> String
 monogram str = unwords $ map ((\ x -> x:".") . head) $ words str
+
+mapMap :: (a -> b) -> [[a]] -> [[b]]
+-- mapMap f lls = [ [ f e | e <- ls ] | ls <- lls]
+-- mapMap f lls = map (\ls -> map f ls) lls
+-- mapMap f lls = map (map f) lls
+-- mapMap f = map (map f)
+-- mapMap f = map . map $ f
+mapMap = map . map
