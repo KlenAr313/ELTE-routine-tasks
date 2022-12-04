@@ -1,0 +1,7 @@
+Gipsz Jakab, H 1 3 4 5, K 1 2 3, Sz 1 5, Cs 3 4 5 6 7, P 1 2 3 4
+Soha Marton, H 2 3 4 5, K 2 3 6, Sz 3 6, Cs, P 1 2 3 4
+Vekony Bela, H 1 3 4 5, K 2 3, Sz 1 9, Cs 3 4 5 6, P
+Kereszt Elod, H, K 1 2 3, Sz 4, Cs 3 4 5 7 9, P 1 3 4
+Kertesz-Kek Elod, H, K 1 2 3, Sz 4, Cs 1 3 4 5 7, P 1 3 4
+Szem Eszter, H, K, Sz, Cs, P
+Horg Asz Ok, H 12, K 22, Sz 2, Cs 2 4 5 7, P 3 4
