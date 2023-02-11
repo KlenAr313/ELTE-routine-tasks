@@ -21,12 +21,24 @@ namespace hot
             }
 
             int[] meleg = new int[N];
-            int Db = 0;
 
+            int Db = calculate(N, M, meleg, ho);
+
+            Console.Write(Db);
+            for (int i = 0; i < Db; i++)
+            {
+                Console.Write(" " + (meleg[i] + 1));
+            }
+            Console.WriteLine();
+        }
+
+        public static int calculate(int N, int M, int[] meleg, int[,] ho)
+        {
+            int Db = 0;
             for (int i = 0; i < N; i++)
             {
                 int j = 0;
-                while (j < M && !(ho[i,j] <= 0))
+                while (j < M && !(ho[i, j] <= 0))
                 {
                     j++;
                 }
@@ -36,12 +48,7 @@ namespace hot
                     Db++;
                 }
             }
-            Console.Write(Db);
-            for (int i = 0; i < Db; i++)
-            {
-                Console.Write(" " + (meleg[i] + 1));
-            }
-            Console.WriteLine();
+            return Db;
         }
     }
 }
